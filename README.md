@@ -9,32 +9,32 @@ This application uses MySQL and Entity to create a webpage that allows Dr. Sneus
 
 ## Specifications
 
-1. **Behavior:** The user is welcomed with a splash page and given the option to view Courses or view Students.
-* **Input Example:** "View Stylists" or "View Clients"
+1. **Behavior:** The user is welcomed with a splash page and given the option to view Machines or view Engineers.
+* **Input Example:** "view Machines " or "view Engineers"
 * **Output Example:** / or / 
 
-2. **Behavior:** The user can add a new Student with their name and date of enrollment.
-* **Input Example:** "Add a Student"
+2. **Behavior:** The user can add a new engineer with their name and date of hire.
+* **Input Example:** "add engineer"
 * **Output Example:** //
 
-3. **Behavior:** The user can add a new Course with the course name and course number.
-* **Input Example:** "Add new Course"
+3. **Behavior:** The user can add a new machine with the machine name and machine number.
+* **Input Example:** "Add new machine"
 * **Output Example:** //
 
-4. **Behavior:** The user can assign students to a course (a single course can have many students and a single student can have many courses).
-* **Input Example:** "Add Student to Course"
+4. **Behavior:** The user can assign engineers to a tool (a single engineer can have many machines and a single machine can have many engineers).
+* **Input Example:** "Add engineer to machine"
 * **Output Example:** ///{}
 
-5. **Behavior:** The program will allow the user to delete a Course.
-* **Input Example:** "Delete Course"
+5. **Behavior:** The program will allow the user to delete a machine.
+* **Input Example:** "Delete machine"
 * **Output Example:** ///{}
 
-5. **Behavior:** The program will allow the user to delete a Student.
-* **Input Example:** "Delete Student"
+5. **Behavior:** The program will allow the user to delete an engineer.
+* **Input Example:** "Delete engineer"
 * **Output Example:** ///{}
 
-4. **Behavior:** The user can edit existing Courses and Student information
-* **Input Example:** "Edit Course Info" or "Edit Student Info"
+4. **Behavior:** The user can edit existing machines and engineer information
+* **Input Example:** "Edit machineInfo" or "Edit engineer Info"
 * **Output Example:** ///{}
 
 ## Setup and Installation
@@ -54,6 +54,9 @@ Editting the Code Base:
 Running the program:
 1. To run the program, you'll need to compile the code: `dotnet build`. This will create a compiled application in the bin/ folder.
 2. Alternately, you can run the program directly with `dotnet run`.
+3. Run a command in the root directory of the project that looks like this: > `dotnet ef migrations add Initial`.
+4. Then run the following command: > `dotnet ef database update`.
+
 
 ## MySQL Installation and Setup
 
@@ -74,31 +77,7 @@ Running the program:
   * Defaults are OK under Windows Service. Make sure that checkboxes are checked for the options "Configure MySQL Server as a Windows Service" and "Start the MySQL Server at System Startup". Under Run Windows Service as..., the "Standard System Account" should be selected.
 * Complete Installation process.
 
-Create a local database:
-1. Open MySQL WorkBench and the click on Local Insstance 3306.
-2. Click the plus symbol in the top left corner of the window "Create a new SQL tab for executing queries"
-3. Then copy and pase the following code into the window to create your database.
 
-```
-DROP DATABASE IF EXISTS `spencer_moody`;
-CREATE DATABASE `spencer_moody`;
-
-DROP TABLE IF EXISTS `clients`;
-CREATE TABLE `clients` (
-  `ClientId` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(255) DEFAULT NULL,
-  `ContactInfo` varchar(255) DEFAULT NULL,
-  `StylistId` int DEFAULT '0',
-  PRIMARY KEY (`ClientId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-DROP TABLE IF EXISTS `stylists`;
-CREATE TABLE `stylists` (
-  `StylistId` int NOT NULL AUTO_INCREMENT,
-  `Name` varchar(255) DEFAULT NULL,
-  `Specialty` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`StylistId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
 
 4. Once the following code has been added to the window click "Execute the selected portion of the script or everything, if there is no selection" (it is the lightning bolt icon).
@@ -118,4 +97,4 @@ No bugs
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-Copyright (c) 2020 Spencer Moody
+Copyright (c) 2020 Erich Richter
