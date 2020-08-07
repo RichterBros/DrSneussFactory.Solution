@@ -4,22 +4,22 @@
 
 @model DrSneuss.Models.Engineer
 
-<h4>Add a new Student</h4>
+<h4>Add a new Engineer</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.StudentName)
-    @Html.TextBoxFor(model => model.StudentName)
+    @Html.LabelFor(model => model.EngineerName)
+    @Html.TextBoxFor(model => model.EngineerName)
 
     @Html.LabelFor(model => model.EnrollmentDate)
     @Html.TextBoxFor(model => model.EnrollmentDate, new { @type = "date"})
 
-    @Html.Label("Select Course")
-    @Html.DropDownList("CourseId")
+    @Html.Label("Select Machine")
+    @Html.DropDownList("MachineId")
 
-    @Html.Label("Select Department")
-    @Html.DropDownList("DepartmentId")
+    @* @Html.Label("Select Department")
+    @Html.DropDownList("DepartmentId") *@
 
-    <input type="submit" value="Add new student" class="btn btn-default" />
+    <input type="submit" value="Add new engineer" class="btn btn-default" />
 }
-<p>@Html.ActionLink("Show all Students", "Index")</p>
+<p>@Html.ActionLink("Show all Engineers", "Index")</p>

@@ -1,11 +1,11 @@
-# University Registrar
+# DrSneuss
 
-#### Latest version date 2020/08/04
+#### Latest version date 2020/08/07
 
-#### By Chris, and Erich Richter
+#### By Erich Richter
 
 ## Description
-This application uses MySQL and Entity to create a webpage that allows the University to keep track of what Courses their Students are enrolled in.
+This application uses MySQL and Entity to create a webpage that allows Dr. Sneuss to keep track of what engineers and machines he has and what engineer can use what machines.
 
 ## Specifications
 

@@ -4,42 +4,42 @@
   Layout = "_Layout";
 }
 
-@model UniversityRegistrar.Models.Student
-@using UniversityRegistrar.Models
-<h2>Student Details</h2>
+@model DrSneuss.Models.Engineer
+@using DrSneuss.Models
+<h2>Engineer Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.StudentName): @Html.DisplayFor(model => model.StudentName)</h3>
+<h3>@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)</h3>
 
-@if(@Model.Courses.Count == 0)
+@if(@Model.Machines.Count == 0)
 {
-  <p>This student does not belong to any course</p>
+  <p>This engineer does not belong to any machine</p>
 }
 else
 {
-  <h4>Course to which the student belongs:</h4>
+  <h4>machines to which the engineer belongs:</h4>
 }
 
 @if(ViewBag.value == null)
 {
-  <p>This student does not belong to any dept or the dept has been deleted</p>
+  <p>This engineer does not belong to any machine or the machine has been deleted</p>
 }
 else
 {
-  @Html.ActionLink($"{Model.Department.DepartmentName}", "Details", "Departments", new {id = Model.DepartmentId} )
+  @Html.ActionLink($"{Model.Machine.MachineName}", "Details", "Machines", new {id = Model.MachineId} )
 }
 
 <ul>
-@foreach(var join in Model.Courses)
+@foreach(var join in Model.Machines)
 {
-  <li>@join.Course.Name</li>
-  @using(Html.BeginForm("DeleteCourse", "Students"))
+  <li>@join.Machine.Name</li>
+  @using(Html.BeginForm("DeleteMachine", "Engineers"))
   {
-    @Html.Hidden("joinId", @join.StudentCourseId)
+    @Html.Hidden("joinId", @join.EngineerMachineId)
     <input type="submit" value="Delete"/>
   }
 }
 </ul>
 <p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Student", "Edit", new { id = Model.StudentId })</p>
-<p>@Html.ActionLink("Delete Student", "Delete", new { id = Model.StudentId })</p><p>@Html.ActionLink("Add a Course", "AddCourse", new { id = Model.StudentId })</p>
+<p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p><p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId })</p>
 

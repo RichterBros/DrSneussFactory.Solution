@@ -4,7 +4,7 @@
 @using DrSneuss.Models;
 @model List<DrSneuss.Models.Engineer>;
 
-<h1>Students</h1>
+<h1>Engineers</h1>
 
 @if (@ViewBag.SearchFlag == 1 && Model.Count == 0) 
 {
@@ -12,15 +12,15 @@
 }
 else if (@ViewBag.SearchFlag == 0 && Model.Count == 0)
 {
-  <h3>No students have been added yet!</h3>
+  <h3>No engineers have been added yet!</h3>
 }
 
 <ul>
-  @foreach (Student student in Model)
+  @foreach (Engineer engineer in Model)
   {
-    <li>@Html.ActionLink($"{student.StudentName}", "Details", new { id = student.StudentId })</li>
+    <li>@Html.ActionLink($"{engineer.EngineerName}", "Details", new { id = engineer.EngineerId })</li>
   }
 </ul>
 
-<p>@Html.ActionLink("Add new student", "Create")</p>
+<p>@Html.ActionLink("Add new engineer", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

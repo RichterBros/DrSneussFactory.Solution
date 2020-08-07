@@ -4,16 +4,16 @@
 
 @model DrSneuss.Models.Engineer
 
-<h2>Add a Course</h2>
+<h2>Add a Machine</h2>
 
-<h4>Add an EXISTING Course for student: @Html.DisplayFor(model => model.StudentName)</h4>
+<h4>Add an EXISTING Machine for engineer: @Html.DisplayFor(model => model.EngineerName)</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.StudentId)
+    @Html.HiddenFor(model => model.EngineerId)
 
-    @Html.Label("Select Course")
-    @Html.DropDownList("CourseId")
+    @Html.Label("Select Machine")
+    @Html.DropDownList("MachineId")
 
     <input type="submit" value="Save" />
 }
