@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using UniversityRegistrar.Models;
+using DrSneuss.Models;
 
-namespace UniversityRegistrar
+namespace DrSneuss
 {
   public class Startup
   {
@@ -25,7 +25,7 @@ namespace UniversityRegistrar
       services.AddMvc();
     
     services.AddEntityFrameworkMySql()
-      .AddDbContext<UniversityRegistrarContext>(options => options
+      .AddDbContext<DrSneussContext>(options => options
       .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
     public void Configure(IApplicationBuilder app)
@@ -43,7 +43,7 @@ namespace UniversityRegistrar
 
       app.Run(async (context) =>
       {
-        await context.Response.WriteAsync("Youre drunk go home");
+        await context.Response.WriteAsync("Something went wrong!");
       });
     }
   }

@@ -1,18 +1,18 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using UniversityRegistrar.Models;
+using DrSneuss.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 
-namespace UniversityRegistrar.Controllers
+namespace DrSneuss.Controllers
 {
   public class CoursesController : Controller
   {
-    private readonly UniversityRegistrarContext _db;
+    private readonly DrSneussContext _db;
 
-    public CoursesController(UniversityRegistrarContext db)
+    public CoursesController(DrSneussContext db)
     {
       _db = db;
     }
