@@ -2,17 +2,17 @@ using System.Collections.Generic;
 
 namespace DrSneuss.Models
 {
-    public class Course
+    public class Machine
     {
-        public Course()
+        public Machine()
         {
-            this.Students = new HashSet<StudentCourse>();
+            this.Engineers = new HashSet<EngineerMachine>();
         }
-        public virtual Department Department { get; set;}
-        public int? DepartmentId{get; set;}
-        public int CourseId { get; set; }
+        //public virtual Department Department { get; set;}
+        //public int? DepartmentId{get; set;}
+        public int MachineId { get; set; }
         public string Name { get; set; }
-        public string CourseNumber { get; set; }
-        public virtual ICollection<StudentCourse> Students { get; set; }
+        public string MachineNumber { get; set; }
+        public virtual ICollection<EngineerMachine> Engineers { get; set; }
     }
 }

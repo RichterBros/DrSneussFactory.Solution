@@ -1,11 +1,11 @@
 namespace DrSneuss.Models
 {
-  public class StudentCourse
+  public class EngineerMachine
     {
-        public int StudentCourseId { get; set; }
-        public int StudentId { get; set; }
-        public int CourseId { get; set; }
-        public Student Student { get; set; }
-        public Course Course { get; set; }
+        public int EngineerMachineId { get; set; }
+        public int EngineerId { get; set; }
+        public int MachineId { get; set; }
+        public Engineer Engineer { get; set; }
+        public Machine Machine { get; set; }
     }
 }

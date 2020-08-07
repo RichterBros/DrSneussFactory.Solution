@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace UniversityRegistrar.Controllers
+namespace DrSneuss.Controllers
 {
   public class HomeController : Controller
   {
@@ -13,13 +13,13 @@ namespace UniversityRegistrar.Controllers
     [HttpPost]
     public ActionResult Index(string searchOption, string searchString)
     {
-      if (searchOption == "courses")
+      if (searchOption == "machines")
       {
-        return RedirectToAction("Index", "Courses", new {searchQuery = searchString});
+        return RedirectToAction("Index", "Machines", new {searchQuery = searchString});
       }
       else
       {
-        return RedirectToAction("Index", "Students", new {searchQuery = searchString});
+        return RedirectToAction("Index", "Engineers", new {searchQuery = searchString});
       }       
     }
   }

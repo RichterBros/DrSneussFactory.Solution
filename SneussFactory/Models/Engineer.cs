@@ -3,19 +3,19 @@ using System;
 
 namespace DrSneuss.Models
 {
-    public class Student
+    public class Engineer
     {
-        public Student()
+        public Engineer()
         {
-            this.Courses = new HashSet<StudentCourse>();
+            this.Machines = new HashSet<EngineerMachine>();
         }
-        public int? DepartmentId {get; set;}
-        public int StudentId { get; set; }
-        public string StudentName { get; set; }
+        //public int? DepartmentId {get; set;}
+        public int EngineerId { get; set; }
+        public string EngineerName { get; set; }
         public DateTime EnrollmentDate { get; set; }
 
-        public virtual Department Department { get; set;}
+        //public virtual Department Department { get; set;}
         
-        public ICollection<StudentCourse> Courses { get;} // has all Id's joined data which is associated to the caregory object
+        public ICollection<EngineerMachine> Machines { get;} // has all Id's joined data which is associated to the caregory object
     }
 }

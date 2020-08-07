@@ -1,16 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace UniversityRegistrar.Models
+namespace DrSneuss.Models
 {
-  public class UniversityRegistrarContext : DbContext
+  public class DrSneussContext : DbContext
   {
-    public virtual DbSet<Course> Courses { get; set; }
+    public virtual DbSet<Machine> Machines { get; set; }
 
-    public DbSet<Student> Students { get; set;}
-    public DbSet<StudentCourse> StudentCourse { get; set; }
+    public DbSet<Engineer> Engineers { get; set;}
+    public DbSet<EngineerMachine> EngineerMachine { get; set; }
 
-    public DbSet<Department> Departments {get; set;}
+    //public DbSet<Department> Departments {get; set;}
     
-    public UniversityRegistrarContext(DbContextOptions options) : base(options) {}
+    public DrSneussContext(DbContextOptions options) : base(options) {}
   }
 }
