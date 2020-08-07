@@ -85,7 +85,7 @@ namespace DrSneuss.Controllers
     public ActionResult AddMachine(int id)
     {
     var thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
-    ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+    ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
     return View(thisEngineer);
     }
 
