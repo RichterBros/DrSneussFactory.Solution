@@ -1,4 +1,4 @@
-namespace UniversityRegistrar.Models
+namespace DrSneuss.Models
 {
   public class StudentCourse
     {

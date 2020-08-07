@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace UniversityRegistrar.Models
+namespace DrSneuss.Models
 {
     public class Student
     {
