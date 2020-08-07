@@ -1,0 +1,45 @@
+@using System.Linq;
+
+@{
+  Layout = "_Layout";
+}
+
+@model UniversityRegistrar.Models.Student
+@using UniversityRegistrar.Models
+<h2>Student Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.StudentName): @Html.DisplayFor(model => model.StudentName)</h3>
+
+@if(@Model.Courses.Count == 0)
+{
+  <p>This student does not belong to any course</p>
+}
+else
+{
+  <h4>Course to which the student belongs:</h4>
+}
+
+@if(ViewBag.value == null)
+{
+  <p>This student does not belong to any dept or the dept has been deleted</p>
+}
+else
+{
+  @Html.ActionLink($"{Model.Department.DepartmentName}", "Details", "Departments", new {id = Model.DepartmentId} )
+}
+
+<ul>
+@foreach(var join in Model.Courses)
+{
+  <li>@join.Course.Name</li>
+  @using(Html.BeginForm("DeleteCourse", "Students"))
+  {
+    @Html.Hidden("joinId", @join.StudentCourseId)
+    <input type="submit" value="Delete"/>
+  }
+}
+</ul>
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Student", "Edit", new { id = Model.StudentId })</p>
+<p>@Html.ActionLink("Delete Student", "Delete", new { id = Model.StudentId })</p><p>@Html.ActionLink("Add a Course", "AddCourse", new { id = Model.StudentId })</p>
+
