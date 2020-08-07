@@ -27,7 +27,7 @@ namespace DrSneuss.Controllers
       else
       {
         ViewBag.SearchFlag = 1;
-        List<Machine> model = _db.Machines.Where(machine => machine.Name.ToLower().Contains(searchQuery.ToLower())).ToList();
+        List<Machine> model = _db.Machines.Where(machine => machine.MachineName.ToLower().Contains(searchQuery.ToLower())).ToList();
         return View(model);
       }
       

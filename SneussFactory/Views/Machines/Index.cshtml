@@ -18,7 +18,7 @@ else if (@ViewBag.SearchFlag == 0 && Model.Count == 0)
 
 @foreach (Machine machine in Model)
 {
-  <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</li>
+  <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId })</li>
 }
 
 <p>@Html.ActionLink("Add new machine", "Create")</p>
