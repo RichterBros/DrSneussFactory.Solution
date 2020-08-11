@@ -9,8 +9,8 @@ namespace DrSneuss.Models
     public DbSet<Engineer> Engineers { get; set;}
     public DbSet<EngineerMachine> EngineerMachine { get; set; }
 
-   
-    
     public DrSneussContext(DbContextOptions options) : base(options) {}
   }
 }
+   
+    

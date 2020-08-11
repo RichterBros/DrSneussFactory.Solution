@@ -63,7 +63,7 @@ namespace DrSneuss.Controllers
       _db.Engineers.Add(engineer);
       if(MachineId !=0)
         {
-            _db.EngineerMachine.Add(new EngineerMachine() {MachineId = MachineId, EngineerId = engineer.EngineerId});
+          _db.EngineerMachine.Add(new EngineerMachine() {MachineId = MachineId, EngineerId = engineer.EngineerId});
         }
       _db.SaveChanges();
       return RedirectToAction("Index");

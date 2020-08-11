@@ -21,20 +21,20 @@ else
     <li>@join.Engineer.EngineerName</li>
     <li>@join.Engineer.EnrollmentDate</li>
     
-  @using(Html.BeginForm("DeleteMachine", "Engineers"))
-  {
-    @Html.Hidden("joinId", @join.EngineerMachineId)
-    <input type="submit" value="Delete"/>
-  }
-  
-  
-  
+    @using(Html.BeginForm("DeleteMachine", "Engineers"))
+    {
+      @Html.Hidden("joinId", @join.EngineerMachineId)
+      <input type="submit" value="Delete"/>
+    }
   }
   </ul>
 }
 
-@* Departments: @Html.ActionLink($"{Model.Department.DepartmentName}", "Details", "Departments", new {id = Model.DepartmentId} ) *@
-
 <p>@Html.ActionLink("Back to machines", "Index")</p>
 <p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
+    
+
+
+  
+  

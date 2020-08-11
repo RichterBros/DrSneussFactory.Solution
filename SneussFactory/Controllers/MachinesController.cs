@@ -30,7 +30,6 @@ namespace DrSneuss.Controllers
         List<Machine> model = _db.Machines.Where(machine => machine.MachineName.ToLower().Contains(searchQuery.ToLower())).ToList();
         return View(model);
       }
-      
     }
 
     public ActionResult Create(int id)
@@ -45,29 +44,21 @@ namespace DrSneuss.Controllers
     {
       _db.Machines.Add(machine);
       
-        _db.EngineerMachine.Add(new EngineerMachine() {EngineerId = EngineerId, MachineId = machine.MachineId});
-      
-      
-      
-      
-      // _db.Entry(machine).State = EntityState.Modified;
+      _db.EngineerMachine.Add(new EngineerMachine() {EngineerId = EngineerId, MachineId = machine.MachineId});
       
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
-    
-    
-    
+      
     public ActionResult Details(int id)
     {
       var thisMachine = _db.Machines
          
-          .Include(machine => machine.Engineers)
-          .ThenInclude(join => join.Engineer)
-          .FirstOrDefault(machine => machine.MachineId == id);
-              
-               ViewBag.value = _db.Machines.FirstOrDefault(x => x.MachineId == thisMachine.MachineId);
+      .Include(machine => machine.Engineers)
+      .ThenInclude(join => join.Engineer)
+      .FirstOrDefault(machine => machine.MachineId == id);
+          
+      ViewBag.value = _db.Machines.FirstOrDefault(x => x.MachineId == thisMachine.MachineId);
      
       return View(thisMachine);
     }

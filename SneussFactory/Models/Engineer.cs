@@ -13,9 +13,9 @@ namespace DrSneuss.Models
         public int EngineerId { get; set; }
         public string EngineerName { get; set; }
         public DateTime EnrollmentDate { get; set; }
-
         public virtual Machine Machine { get; set;}
-        
-        public ICollection<EngineerMachine> Machines { get; } // has all Id's joined data which is associated to the engineer object
+        public ICollection<EngineerMachine> Machines { get; } 
     }
 }
+
+        
