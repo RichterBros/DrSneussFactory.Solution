@@ -77,6 +77,66 @@ Running the program:
   * Defaults are OK under Windows Service. Make sure that checkboxes are checked for the options "Configure MySQL Server as a Windows Service" and "Start the MySQL Server at System Startup". Under Run Windows Service as..., the "Standard System Account" should be selected.
 * Complete Installation process.
 
+## Setup/Installation Requirements
+
+**Requirements:**
+* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.203-windows-x64-installer)
+* [MySQL Server 8.0.19](https://dev.mysql.com/downloads/file/?id=484919)
+* [MySQL Workbench 8.0.19](https://dev.mysql.com/downloads/file/?id=484919)
+* Entity Framework
+
+**To use this program:**
+
+1. Open your preferred browser.
+2. Navigate to https://github.com/RichterBros/DrSneussFactory.Solution
+3. Click the **Code** button and click **Download ZIP** to clone the repository to your computer.
+4. Open the Windows PowerShell console, VS Code Bash terminal, or the MacOS Terminal and use the ``cd [YOUR DOWNLOAD FILEPATH]/DrSneussFactory.Solution/Factory`` command to navigate to the Factory subdirectory.
+5. Use the ``dotnet restore`` command to install the necessary packages on your computer.
+6. Use the ``dotnet run`` command to run the program.
+7. Use the web interface to add engineers and machines and keep track of Dr. Sneuss's factory.
+8. Ensure that the following code is present in your *appsettings.json* file:
+
+    ```
+    {
+      "ConnectionStrings": {
+          "DefaultConnection": "Server=localhost;Port=3306;database=erich_richter;uid=root;pwd=epicodus;"
+      }
+    }
+    ```
+
+9. If you have any issues running this program, please reach out to the developer or troubleshoot at your own risk.
+
+To recreate the database using MySQL and Entity Framework Core:
+
+_**Note**: These instructions assume that you have installed and set up your MySQL Server according to Epicodus's guidelines, as well as Entity Framework Core. For more information, see [Installing and Configuring MySQL](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql) and [Configuration for Entity Framework Core](https://www.learnhowtoprogram.com/c-and-net/database-basics-c2449db9-5bd8-4303-af8d-7ed7259f79a7/configuration-for-entity-framework-core)._
+
+1. Open Windows PowerShell, the MacOS Terminal, or your VS Code terminal and use the command ``cd [YOUR DOWNLOAD FILEPATH]/DrSneussFactory.Solution``.
+2. Ensure that the Migrations folder is included in your cloned repository.
+3. Use the ``dotnet ef database update`` command to apply the latest database migration.
+4. Use MySQL Workbench or your preferred terminal to verify the database schema.
+
+**To contribute to this project:**
+
+1. Open your preferred browser.
+2. Navigate to https://github.com/RichterBros/DrSneussFactory.Solution.
+3. Log into or sign up for your GitHub account.
+4. Click the **Fork** button to copy the repository and all source code.
+5. From your forked repository, you can download or clone the repository, by clicking the **Code** button.
+  * To clone the repository in Visual Studio Code's terminal, use the command
+
+    ```git clone https://github.com/[YOUR-USER-NAME-HERE]/DrSneussFactory.Solution```
+  * To clone the repository in GitHub Desktop, click the **Open in Desktop** option
+  * To download the repository, click the **Download ZIP** option, save the archive to your computer, and extract it to the folder of your choice
+6. Use your preferred code editor to edit the appropriate model and view files. New classes should be added in the Models subdirectory and should use the ``Factory.Models`` namespace. **Note**: the Factory.csproj file is a C# project file and should not be edited.
+7. Use the ``dotnet ef migrations add [YOUR MIGRATION NAME HERE]`` to add a new database migration. 
+
+    You can also export your database schema from MySQL Workbench by using the **Data Export** option on the **Administration** tab of your database, select the schema you want to export, select the **Dump Structure and Data** option from the dropdown menu, and click the **Start Export** button. Make sure to name the file _erich_richter.sql_ and add the file to your repository in the top-level directory.
+8. Save any changes you make in your code editor and use your preferred git solution to commit your changes.
+9. Push your changes to your forked repository.
+
+
+
+
 
 ```
 
