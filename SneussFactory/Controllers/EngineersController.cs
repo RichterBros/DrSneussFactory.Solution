@@ -48,8 +48,7 @@ namespace DrSneuss.Controllers
         _db.Entry(engineer).State = EntityState.Modified;
         _db.SaveChanges();
         return RedirectToAction("Index");
-      
-    }
+      }
 
     public ActionResult Create()
     {

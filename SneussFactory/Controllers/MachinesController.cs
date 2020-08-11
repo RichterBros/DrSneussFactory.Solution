@@ -33,21 +33,32 @@ namespace DrSneuss.Controllers
       
     }
 
-    public ActionResult Create()
+    public ActionResult Create(int id)
     {
-      
+      var thisMachine= _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
-      return View();
+      return View(thisMachine);
     }
 
     [HttpPost]
-    public ActionResult Create(Machine machine)
+    public ActionResult Create(Machine machine, int EngineerId)
     {
       _db.Machines.Add(machine);
+      
+        _db.EngineerMachine.Add(new EngineerMachine() {EngineerId = EngineerId, MachineId = machine.MachineId});
+      
+      
+      
+      
+      // _db.Entry(machine).State = EntityState.Modified;
+      
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
+    
+    
+    
     public ActionResult Details(int id)
     {
       var thisMachine = _db.Machines
@@ -55,24 +66,11 @@ namespace DrSneuss.Controllers
           .Include(machine => machine.Engineers)
           .ThenInclude(join => join.Engineer)
           .FirstOrDefault(machine => machine.MachineId == id);
-      // ViewBag.value = _db.Engineers.FirstOrDefault(x => x.EngineerId == thisMachine.EngineerId);
+              
+               ViewBag.value = _db.Machines.FirstOrDefault(x => x.MachineId == thisMachine.MachineId);
      
       return View(thisMachine);
     }
-
-    // public ActionResult Edit(int id)
-    // {
-    //   var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-    //   return View(thisMachine);
-    // }
-
-    // [HttpPost]
-    // public ActionResult Edit(Machine machine)
-    // {
-    //   _db.Entry(machine).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
 
   public ActionResult Edit(int id)
     {
@@ -91,29 +89,8 @@ namespace DrSneuss.Controllers
         _db.Entry(machine).State = EntityState.Modified;
         _db.SaveChanges();
         return RedirectToAction("Index");
-      
     }
-
-
-
-
-
-
-    // public ActionResult Delete(int id)
-    // {
-    //   var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-    //   return View(thisMachine);
-    // }
-
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-    //   _db.Machines.Remove(thisMachine);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
-  
+      
   public ActionResult Delete(int id)
     {
       var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
@@ -136,9 +113,19 @@ namespace DrSneuss.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-  
   }
 }
+    
+
+
+  
+
+
+
+
+
+ 
+  
   
   
   
