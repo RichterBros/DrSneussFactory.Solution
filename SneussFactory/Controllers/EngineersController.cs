@@ -53,8 +53,8 @@ namespace DrSneuss.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
-      // ViewBag.DepartmentId= new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
+     
       return View();
     }
 
@@ -73,7 +73,7 @@ namespace DrSneuss.Controllers
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
-        //.Include(student => student.Department)
+        
         .Include(engineer=> engineer.Machines)
         .ThenInclude(join => join.Machine)
         .FirstOrDefault(engineer => engineer.EngineerId == id);

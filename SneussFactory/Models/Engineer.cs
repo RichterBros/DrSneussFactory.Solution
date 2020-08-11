@@ -16,6 +16,6 @@ namespace DrSneuss.Models
 
         public virtual Machine Machine { get; set;}
         
-        public ICollection<EngineerMachine> Machines { get;} // has all Id's joined data which is associated to the caregory object
+        public ICollection<EngineerMachine> Machines { get; } // has all Id's joined data which is associated to the engineer object
     }
 }
